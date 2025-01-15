@@ -5,6 +5,8 @@ Refer connection.py to understand how connection is established
 collection.insert_one(document) adds single document to the referred collection,
 collection.insert_many([document1, document2, ...]) adds multiple document to the referred collection
 Both the method returns the ObjectID or list of ObjectIDs for successfully added documents
+
+MONGODB_URI is a connection string which can be retrieved from connect button in cluster at MongoDB Atlas
 """
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
@@ -12,8 +14,6 @@ from dotenv import load_dotenv
 import os
 
 load_dotenv()
-username, password = os.getenv("MY_MDB_ORG_USER"), os.getenv("MY_MDB_ORG_PASSWORD")
-MONGODB_uri = f"mongodb+srv://{username}:{password}@myatlasclusteredu.bcqr7.mongodb.net/?retryWrites=true&w=majority&appName=myAtlasClusterEDU"
 MONGODB_URI = os.getenv("MONGODB_URI")
 
 # Create a new client and connect to the server

@@ -2,6 +2,8 @@
 This python file explains how to establish connection with the MongoDB server
 username and password are stored in environment file for security purpose
 URI can be retrieved from "Connect" option in MongoDB Cluster on cloud
+
+MONGODB_URI is a connection string which can be retrieved from connect button in cluster at MongoDB Atlas
 """
 
 from pymongo.mongo_client import MongoClient
@@ -10,8 +12,6 @@ from dotenv import load_dotenv
 import os
 
 load_dotenv()
-username, password = os.getenv("MY_MDB_ORG_USER"), os.getenv("MY_MDB_ORG_PASSWORD")
-MONGODB_uri = f"mongodb+srv://{username}:{password}@myatlasclusteredu.bcqr7.mongodb.net/?retryWrites=true&w=majority&appName=myAtlasClusterEDU"
 MONGODB_URI = os.getenv("MONGODB_URI")
 
 # Create a new client and connect to the server
